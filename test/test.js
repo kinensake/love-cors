@@ -7,18 +7,20 @@ describe("Some bypass Same-Origin Policy test", function(){
     it ("fetch https://google.com", (done) => {
         request("http://localhost:3000")
             .get("/https://google.com")
+            .expect("Access-Control-Allow-Origin", "*")
             .expect(200, done);
     });
 
     it ("fetch json sample 1", (done) => {
         request("http://localhost:3000")
             .get("/https://jsonplaceholder.typicode.com/todos/1")
+            .expect("Access-Control-Allow-Origin", "*")
             .expect(200, {
                 "userId": 1,
                 "id": 1,
                 "title": "delectus aut autem",
                 "completed": false
-            }, done);
+            }, done)
     });
 
     it ("post sample", (done) => {
@@ -29,6 +31,7 @@ describe("Some bypass Same-Origin Policy test", function(){
                 "name": "morpheus",
                 "job": "leader"
             })
+            .expect("Access-Control-Allow-Origin", "*")
             .expect(200)
             .then(res => {
                 if (res.body.name === "morpheus") {
