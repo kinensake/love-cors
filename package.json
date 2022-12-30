@@ -10,7 +10,7 @@
   "author": "kinensake <kinensake@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^7.1.0"
+    "mocha": "^10.2.0"
   },
   "dependencies": {
     "supertest": "^4.0.2"
